@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
-import {Channel} from './interfaces/channel';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Channel } from './interfaces/channel';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ChatServiceService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
   getChannel(): Observable<Channel[]> {
-    return this.h.get<Channel[]>('http://localhost:4200')
+    return this.http.get<Channel[]>('http://localhost:3000/channels')
   }
 }

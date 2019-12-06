@@ -1,1 +1,7 @@
-<p>barre-titre works!</p>
+<mat-toolbar color="primary">
+  <span>{{ title }} <span *ngIf="userName"> {{ userName }}</span></span>
+  <button mat-flat-button color="primary" (click)="disconnect()" *ngIf="userName">
+    Déconnexion
+  </button>
+</mat-toolbar>
+<router-outlet></router-outlet>
